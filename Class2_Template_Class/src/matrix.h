@@ -50,6 +50,7 @@ void Matrix<T1>::printMatrix()
       {
 	 cout << doubleArray[i][j] << "   ";
       }
+      // End Of Line when Cols reach the max number.
       cout << endl;
    }
 }

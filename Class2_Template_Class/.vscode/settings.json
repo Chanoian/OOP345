@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "*.tpp": "cpp"
+        "*.tpp": "cpp",
+        "xstring": "cpp"
     },
-    "terminal.integrated.shell.windows": "cmd.exe"
+    "terminal.integrated.shell.windows":"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
 }

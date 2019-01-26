@@ -30,14 +30,31 @@ int main()
 	  {3,2,1}
        };
 
+   double double1[MAXROWS][MAXCOLS] = 
+       {
+	  {6.6665,5.66636,4.6666},
+	  {3.4444,2.22222,1.1111}
+       };
+
+   double double2[MAXROWS][MAXCOLS] = 
+       {
+	  {6.22266,5.9999999,4.6666},
+	  {3.11114,2.9992222,1.1111}
+       };
+
+
     Matrix<string> stringMatrix;
     Matrix<int> intMatrix;
+    Matrix<double> doubleMatrix ;
 
     cout << "\nDemonstrating with string matrix:" << endl;
     demoTemplate(stringMatrix, str1, str2);
 
     cout << "\nDemonstrating with int matrix:" << endl;
     demoTemplate(intMatrix, num1, num2);
+
+    cout << "\nDemonstrating with double matrix:" << endl;
+    demoTemplate(doubleMatrix, double1, double2);
 
 
     cout << "\n" << endl;
