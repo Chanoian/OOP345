@@ -16,7 +16,7 @@ int main()
    int i_one = 3, i_two = 5;
 
    cout << "The max of " << i_one << " and " << i_two << " is "
-	<< myMax(i_one, i_two) << endl;
+	<< myMax(i_one, i_two) << endl ;
 
    //Test your template on float and string types
     
