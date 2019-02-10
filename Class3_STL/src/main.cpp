@@ -39,7 +39,7 @@ class myMap
     bool findItem(string myKey)
     {
         map<string, string> ::iterator iter = mp.begin();
-        iter = mp.find(myKey); 
+        iter = mp.find(myKey); //mp.find returns and iterator or constant iterator
         if (iter == mp.end())
         {
             return false ;
@@ -50,7 +50,7 @@ class myMap
     int numberOfValuesAgainstKey(string myKey)
     {
         int numOfValues ;
-        numOfValues = mp.count(myKey); 
+        numOfValues = mp.count(myKey); //mp.count returns 1 if the key is inside the map otherwise 0
         return numOfValues ;
     }
     void displayMap()
@@ -101,18 +101,39 @@ int main ()
                 getline(cin, key);
                 booklibrary.deleteItem(key) ;
                 break;
-            // case 3:
+            case 3:
+                getchar();
+                cout<<"Enter element to figure out if its found: ";
+                getline(cin, key);
+                if (booklibrary.findItem(key) == true)
+                {
+                    cout << " The Item found" << endl;
+                }
+                else
+                    cout << " The Item is Not found" << endl ;
+                break ;
             case 4:
+                int numberOfValues ;
                 getchar();
                 cout<<"Enter element to be counted: ";
                 getline(cin, key);
+                numberOfValues = booklibrary.numberOfValuesAgainstKey(key);
+                if (numberOfValues == 1)
+                {
+                    cout << " The Key found" << endl;
+                }
+                else 
+                    cout << "The Key is not there" << endl ;
+                break ;
             case 5:
                 cout << "Size of the map is " << booklibrary.sizeMap() << endl ;
+                break ;
             case 6:
                 booklibrary.displayMap();
-                
+                break ;
             case 7:
-                exit(1);
+                cout << "Exiting" << endl ;
+                exit(0) ;
                 break;
             default:
                 exit(1) ;
