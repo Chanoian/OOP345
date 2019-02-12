@@ -6,6 +6,7 @@
 #include <string>
 #include <iterator>
 #include <stdio.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -62,7 +63,8 @@ class myMap
     }
     private:
      map<string, string> mp ;
-     map<string, string>::iterator it, it1;
+     map<string, string>::iterator it;
+    
 };
 
 int main ()
@@ -133,10 +135,10 @@ int main ()
                 break ;
             case 7:
                 cout << "Exiting" << endl ;
-                exit(0) ;
+                exit(0);
                 break;
             default:
-                exit(1) ;
+                exit(0);
         }
     }
     return 0 ;
