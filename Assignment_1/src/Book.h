@@ -2,15 +2,16 @@
 #define BOOK_H
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
 class Book
 {
 public:
-	Book();
-    Book(string new_author, string new_title, string new_date);
-    void setData(string new_author, string new_title, string new_date);
+    Book () ;
+    Book(string , string , string );
+    void setData(string , string , string );
 	string getAuthor() const;
     string getTitle() const;
     string getDate() const;
