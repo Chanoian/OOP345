@@ -11,12 +11,30 @@ using namespace std;
 template <typename T>
 T myMax(T one, T two);
 
+template <typename S>
+S printOut(S output);
+
+template <typename A>
+A square(A input);
+
 int main()
 {
+   double d = 3.3456;
+   char s = 'a' ;
    int i_one = 3, i_two = 5;
+   float f = 0.000123;
 
-   cout << "The max of " << i_one << " and " << i_two << "  is "
-	<< myMax(i_one, i_two) << endl ;
+   cout << "The max of " << i_one << " and " << i_two << "  is " << myMax(i_one, i_two) << endl ;
+
+   printOut(s) ;
+   printOut(d) ;
+   printOut(i_one) ;
+
+   cout << " The Square of " << d << " Is " << square(d) << endl ;
+   cout << " The Square of " << i_two << " Is " << square(i_two) << endl;
+   cout << " The Square of " << s << " Is " << square(s) << endl;
+   cout << " The Square of " << f << " Is " << square(f) << endl;
+
 
    //Test your template on float and string types
     
@@ -24,23 +42,7 @@ int main()
 }
 
 
-//Make a template out of this function. Don't forget the return type.
-/**
-int myMax(int one, int two)
-{
-   int bigger;
-   if (one < two)
-   {
-      bigger = two;
-   }
-   else
-   {
-      bigger = one;
-   }
-   return bigger;
-   system("pause");
-}
-**/
+
 
 template <typename T>
 T myMax(T one, T two)
@@ -48,4 +50,19 @@ T myMax(T one, T two)
    T bigger ; 
    bigger = (one>two)? one : two;
    return (bigger) ;
+}
+
+template <typename S>
+S printOut(S output)
+{
+   cout << "The Output Is " << output << endl ;
+   return output ;
+}
+
+template <typename A>
+A square(A input)
+{
+   A result ; 
+   result = input * input ;
+   return result;
 }
