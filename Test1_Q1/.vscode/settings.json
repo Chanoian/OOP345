@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.tpp": "cpp",
+        "list": "cpp"
+    },
+    "terminal.integrated.shell.windows": "cmd.exe"
+}
