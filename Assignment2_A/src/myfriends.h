@@ -4,25 +4,26 @@
 
 using namespace std ;
 
-class node : myfriends
+class friendsNode
 {
 public:
-    node *next;
-    node *prev;
-    myfriends data;
-
+	string name;
+	string birthdate;
+	string address;
+	string contactNumber;
+	friendsNode* next;
+	friendsNode* previous;
 };
 
-class list
+class friendsList
 {
-public:
-};
+private:
+	friendsNode* head;
 
-class myfriends
-{
 public:
-    string friendName ;
-    string friendBirthdate ;
-    string frinedAddress ;
-    string friendContact ;
-};
+	friendsList(void) { head = NULL;}
+	~friendsList(void) ;
+	friendsNode *AddFirstFriend (friendsNode *, string , string , string , string );
+	bool IsEmpty() ;
+
+}
