@@ -12,18 +12,18 @@ public:
 	string address;
 	string contactNumber;
 	friendsNode* next;
-	friendsNode* previous;
-};
+	friendsNode* prev;
+} ;
 
 class friendsList
 {
 private:
 	friendsNode* head;
-
 public:
-	friendsList(void) { head = NULL;}
-	~friendsList(void) ;
-	friendsNode *AddFirstFriend (friendsNode *, string , string , string , string );
-	bool IsEmpty() ;
-
-}
+	friendsList(void);
+	void createList(string, string, string, string);
+    void addFriend(string, string, string, string);
+    void displayFriendsList();
+	void deleteFriend(string) ;
+	bool searchFriend(string) ;
+};

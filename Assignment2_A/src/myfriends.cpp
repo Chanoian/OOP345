@@ -3,37 +3,127 @@
 
 using namespace std ;
 
-friendsNode * friendsList :: AddFirstFriend (friendsNode *begin, string name, string birthdate, string address, string contactNumber)
-{
-	friendsNode *tempNode = new friendsNode();
-	tempNode->name = name;
-	tempNode->birthdate = birthdate;
-	tempNode->address = address;
-	tempNode->contactNumber = contactNumber;
-	tempNode->next = NULL ;
-	tempNode->previous = NULL;
-	begin = tempNode ;
-	return begin ;
+string name , birthdate, address, contactNumber;
 
+void friendsList::createList(string name , string birthdate, string address, string contactNumber)
+
+{
+    class friendsNode *s, *temp;
+    temp = new(friendsNode); 
+    temp->name = name;
+	temp->birthdate = birthdate;
+	temp->address = address;
+	temp->contactNumber = contactNumber;
+    temp->next = NULL;
+    if (head == NULL)
+    {
+        temp->prev = NULL;
+        head = temp;
+    }
+    else
+    {
+        s = head;
+        while (s->next != NULL)
+            s = s->next;
+        s->next = temp;
+        temp->prev = s;
+    }
 }
 
-friendsNode * friendsList *create_list(friendsNode *begin)
+friendsList::friendsList (void)
 {
-	int i,n,data_element;
-	cout<<"Enter the number of nodes : ";
-	cin>>n;
-	begin=NULL;
-	if(n==0)
-		return begin;
-	cout<<"Enter the element: ";
-	cin>>data_element;
-	begin=addtoemptylist(begin,data_element);
-		
-	for(i=2;i<=n;i++)
-	{
-		cout<<"Enter the element to be inserted : ";
-		cin>>data_element;
-		begin=addatendlist(begin,data_element);	
-	}
-	return begin;
+	head = NULL;
+}
+
+void friendsList::addFriend(string name , string birthdate, string address, string contactNumber)
+{
+    if (head == NULL)
+    {
+        cout<<"First Create the list."<<endl;
+        return;
+    }
+    class friendsNode *temp;
+    temp = new (friendsNode);
+    temp->prev = NULL;
+    temp->name = name;
+	temp->birthdate = birthdate;
+	temp->address = address;
+	temp->contactNumber = contactNumber;
+    temp->next = head;
+    head->prev = temp;
+    head = temp;
+    cout<<"Friend Inserted "<<endl;
+}
+
+void friendsList::displayFriendsList()
+{
+    struct friendsNode *q;
+    if (head == NULL)
+    {
+	    cout<<"List empty,nothing to print"<<endl;
+        return;
+    }
+    q = head;
+    while (q != NULL)
+    {
+        cout<<"The Name " << q->name<<endl ;
+        cout<<"The address " <<  q->address <<endl ;
+        cout<<"The Contact Number " <<  q->contactNumber <<endl ;
+        cout<<"The Birthdate " << q->birthdate<<endl ;
+        q = q->next;
+    };
+}
+
+void friendsList::deleteFriend(string name)
+
+{
+    friendsNode *tmp, *q;
+    if (head->name == name)
+    {
+        tmp = head;
+        head = head->next;  
+        head->prev = NULL;
+        cout<<"Element Deleted"<<endl;
+        free(tmp);
+        return;
+    }
+    q = head;
+    while (q->next->next != NULL)
+    {   
+        if (q->next->name == name)  
+        {
+            tmp = q->next;
+            q->next = tmp->next;
+            tmp->next->prev = q;
+            cout<<"Element Deleted"<<endl;
+            free(tmp);
+            return;
+        }
+        q = q->next;
+    }
+    if (q->next->name == name)    
+    { 	
+        tmp = q->next;
+        free(tmp);
+        q->next = NULL;
+        cout<<"Element Deleted"<<endl;
+        return;
+    }
+    cout<<"Element "<<name<<" not found"<<endl;
+}
+
+bool friendsList::searchFriend(string name)
+{
+    friendsNode  *q = head;
+    while (q != NULL)
+    {
+            cout<<"Key: "<<name<<" : Record Name: "<<q->name<<endl;
+
+        if (q->name == name)
+        {
+            return true ;
+        }
+        q = q->next ;
+    }
+    return false;
 }
