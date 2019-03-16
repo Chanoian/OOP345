@@ -22,7 +22,6 @@ private:
 public:
 	friendsList(void);
 	void createList(string, string, string, string);
-    void addFriend(string, string, string, string);
     void displayFriendsList();
 	void deleteFriend(string) ;
 	bool searchFriend(string) ;
