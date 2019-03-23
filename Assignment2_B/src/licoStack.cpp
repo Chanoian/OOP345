@@ -17,7 +17,7 @@ stackList :: stackList(int stacksize)
 
 bool stackList :: push(int x)
 {
-    cout <<"Before Current Index " << currentIndex << " stackSize " << stackSize << endl ;
+    cout <<"Before Push Current Index " << currentIndex << " stackSize " << stackSize << endl ;
     if (currentIndex >= stackSize) 
     {
         cout << " The Stack is full" << endl;
@@ -29,6 +29,7 @@ bool stackList :: push(int x)
         temp = new (stackNode);
         temp->value = x;
         temp->next = NULL;
+       
         if (head == NULL)
         {
             head = temp;
@@ -38,11 +39,11 @@ bool stackList :: push(int x)
         {
             i = head;
             while (i->next != NULL)
-                i = head->next;
+                i = i->next;
             i->next = temp ;
         }
     currentIndex ++ ;
-    cout <<"Before Current Index " << currentIndex << " stackSize " << stackSize << endl ;
+    cout <<"After Push Current Index " << currentIndex << " stackSize " << stackSize << endl ;
     return true;
     }
 }

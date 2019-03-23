@@ -31,3 +31,6 @@
 *.out
 *.app
 *.pdb
+
+# Vscode folder
+.vscode
