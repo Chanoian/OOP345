@@ -2,22 +2,23 @@
 
 using namespace std ;
 
-struct queNode  
+struct queueNode  
 {
-    queNode *next;
-    queNode *prev ;
+    queueNode *next;
+    queueNode *prev ;
     int value;
 };
 
-class queList
+class queueList
 {
 private:
-    queNode *head;
-    queNode *tail;
+    queueNode *front;
+    queueNode *back;
     int stackSize ;
-    int currentIndex ;
+    int currentIndex ; //To memorize the size of the current Queue
+    
 public:
-    queList (int) ;
+    queueList (int) ;
     bool enqueue(int);
     bool dequeue();
     bool isEmpty(void);
