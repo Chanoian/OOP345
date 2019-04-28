@@ -75,13 +75,3 @@ void HashMap::Display(int Id)
         cout <<"The Name " <<  table[hash]->name << endl ;
     }
 }
-
-HashMap::~HashMap()
-{
-    for (int i = 0; i < STUDENT_NUMBER; i++)
-    {
-        if (table[i] != NULL)
-            delete table[i];
-        delete[] table;
-    }
-}

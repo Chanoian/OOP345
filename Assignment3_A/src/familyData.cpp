@@ -96,25 +96,21 @@ void familyData::deleteNode(string name, familyData *&nodePtr)
 
 void familyData::makeDeletion(familyData *&nodePtr)
 {
-    familyData *tempNodePtr; // Temporary pointer, used in
-    // reattaching the left subtree.
+    familyData *tempNodePtr; 
     if (nodePtr == NULL)
         cout << "Cannot delete empty node.\n";
     else if (nodePtr->rChild == NULL)
     {
         tempNodePtr = nodePtr;
         nodePtr = nodePtr->lChild;
-        // Reattach the left child
         delete tempNodePtr;
     }
     else if (nodePtr->lChild == NULL)
     {
         tempNodePtr = nodePtr;
         nodePtr = nodePtr->rChild;
-        // Reattach the right child
         delete tempNodePtr;
     }
-    // If the node has two children.
     else
     {
         // Move one node the right.
@@ -122,10 +118,8 @@ void familyData::makeDeletion(familyData *&nodePtr)
         // Go to the end left node.
         while (tempNodePtr->lChild)
             tempNodePtr = tempNodePtr->lChild;
-        // Reattach the left subtree.
         tempNodePtr->lChild = nodePtr->lChild;
         tempNodePtr = nodePtr;
-        // Reattach the right subtree.
         nodePtr = nodePtr->rChild;
         delete tempNodePtr;
     }

@@ -32,5 +32,4 @@ public:
     int Search(int);
     void Remove(int);
     void Display(int);
-    ~HashMap();
 };
